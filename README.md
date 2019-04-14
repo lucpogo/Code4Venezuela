@@ -149,7 +149,7 @@ Se encontrara un [Apk de debug](), la misma se conecta a un API donde obtiene lo
 
 * **Edermar Dominguez** - [Ederdoski](https://gitlab.com/Ederdoski/about)
 * **Lucas Pogorelsky** - [lucpogo](http://www.github.com/lucpogo)
-* ** ** - []()
+* **Salvador Serruya** - [ttSpeaker](http://www.github.com/ttspeaker)
 
 ## Referencias
 
