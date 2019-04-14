@@ -10,7 +10,6 @@ import numpy as np
 import io
 import time
 from azure.storage.blob import BlockBlobService
-import datetime
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -121,7 +120,7 @@ df.to_sql('tweets',con=engine,if_exists='append',index=False)
 
 blob_service = BlockBlobService(storageParams['account_name'], storageParams['key'])
 
-fileName = str(datetime.datetime.now()) + '.json'
+fileName = str(datetime.now()) + '.json'
 
 with open(fileName,'wt') as f:
     json.dump(data,f)
