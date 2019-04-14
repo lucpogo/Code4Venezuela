@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+var cors = require("cors");
+
 const dotenv = require("dotenv");
 dotenv.config();
 //CONEXION BD
@@ -24,6 +26,7 @@ app.use(
   })
 );
 
+app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -41,41 +44,46 @@ app.get("/ubicaciones", (req, res) => {
     if (error) {
       throw error;
     }
-    res.status(200).json(results.rows)
+    res.status(200).json(results.rows);
   });
 });
-app.get("/querys", (req,res)=>{
+app.get("/querys", (req, res) => {
   pool.query("SELECT DISTINCT query FROM tweets;", (error, results) => {
     if (error) {
       throw error;
     }
-    res.status(200).json(results.rows)
+    res.status(200).json(results.rows);
   });
-})
-app.get("/ubicaciones", (req,res)=>{
+});
+app.get("/ubicaciones", (req, res) => {
   pool.query("SELECT DISTINCT ubicacion FROM tweets;", (error, results) => {
     if (error) {
       throw error;
     }
-    res.status(200).json(results.rows)
-  });
-})
-app.get("/tweets/:query", (req, res) => {
-  pool.query("SELECT count(*), ubicacion, lat, lon FROM( SELECT tweets.ubicacion, ubicaciones.lat, ubicaciones.lon FROM tweets JOIN ubicaciones ON (tweets.ubicacion=ubicaciones.ubicacion) WHERE query='"+req.params.query+"') AS tab GROUP BY ubicacion, lat, lon;", (error, results) => {
-    if (error) {
-      throw error;
-    }
-    res.status(200).json(results.rows)
+    res.status(200).json(results.rows);
   });
 });
-app.get("/tweets", (req,res)=>{
+app.get("/tweets/:query", (req, res) => {
+  pool.query(
+    "SELECT count(*), ubicacion, lat, lon FROM( SELECT tweets.ubicacion, ubicaciones.lat, ubicaciones.lon FROM tweets JOIN ubicaciones ON (tweets.ubicacion=ubicaciones.ubicacion) WHERE query='" +
+      req.params.query +
+      "') AS tab GROUP BY ubicacion, lat, lon;",
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      res.status(200).json(results.rows);
+    }
+  );
+});
+app.get("/tweets", (req, res) => {
   pool.query("SELECT * FROM tweets;", (error, results) => {
     if (error) {
       throw error;
     }
-    res.status(200).json(results.rows)
+    res.status(200).json(results.rows);
   });
-})
+});
 
 app.listen(process.env.PORT, function() {
   console.log("Running app on port " + process.env.PORT);
