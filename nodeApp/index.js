@@ -59,9 +59,8 @@ app.get("/ubicaciones", (req, res) => {
 });
 app.get("/tweets/:query", (req, res) => {
   pool.query(
-    "SELECT count(*), ubicacion, lat, lon FROM( SELECT tweets.ubicacion, ubicaciones.lat, ubicaciones.lon FROM tweets JOIN ubicaciones ON (tweets.ubicacion=ubicaciones.ubicacion) WHERE query='" +
-      req.params.query +
-      "') AS tab GROUP BY ubicacion, lat, lon;",
+    "SELECT count(*), ubicacion, lat, lon FROM( SELECT tweets.ubicacion, tweets.tweet_date, ubicaciones.lat, ubicaciones.lon FROM tweets JOIN ubicaciones ON (tweets.ubicacion=ubicaciones.ubicacion) WHERE query='" +
+      req.params.query + "' AND is_retweet=false) AS tab GROUP BY ubicacion, lat, lon;",
     (error, results) => {
       if (error) {
         throw error;
