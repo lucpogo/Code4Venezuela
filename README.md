@@ -2,9 +2,9 @@
 
 ## Introducción
 
-Esta solución responde al problema de [Médicos por la Salud](https://github.com/code-for-venezuela/2019-april-codeathon/tree/master/challenges/MPV-INF).
+Esta solución responde al problema de [Médicos por la Salud](https://github.com/code-for-venezuela/2019-april-codeathon/tree/master/challenges/MPV-INF) para poder identificar necesidades y posibles epidemias utilizando Twitter.
 
-Nos enfocamos en poder automatizar la ingesta de datos y la visualización de la misma.
+Nos enfocamos en poder automatizar la ingesta de datos y la visualización de las mismos.
 
 ## Instalación
 
