@@ -5,7 +5,6 @@ let dataProcessed = false;
 let gotTweets = false;
 let querys;
 let currentColor;
-
 const options = {
   lat: 7,
   lng: -66,
@@ -14,7 +13,6 @@ const options = {
 };
 
 function preload() {
-  $(document).ready(() => {
     querys = $.get("http://localhost:8080/querys", function() {})
       .done(function() {
       })
@@ -27,14 +25,12 @@ function preload() {
     )
       .done(function() {
         gotTweets = true;
-        
-        console.log(tweets.responseJSON);
-      })
+        })
       .fail(function() {})
       .always(function() {});
- 
-  });
 }
+
+
 function setup() {
 
   canvas = createCanvas(800, 600);
@@ -42,65 +38,66 @@ function setup() {
   tweetsMap.overlay(canvas);
 
   // dataSource = select('#dataSource'); // get the DOM element from the HTML
-  // dataSource.changed(processData); // assign callback
+  // dataSource.changed(mapMaxMin); // assign callback
 
   currentColor = color(0, 255, 150, 100); // default color
 }
 
 function draw() {
-  clear();
   if (gotTweets ) {
+  clear();
     if(dataProcessed){
       for (var key in tweets.responseJSON) {
         if (tweets.responseJSON.hasOwnProperty(key)) {
-          fill(currentColor);
-          let pixCoords = tweetsMap.latLngToPixel(
-            tweets.responseJSON[key].lat,
-            tweets.responseJSON[key].lon
+          if (tweetsMap.map.getBounds().contains({lat: tweets.responseJSON[key].lat, lng: tweets.responseJSON[key].lon})) {
+            fill(currentColor);
+            let pixCoords = tweetsMap.latLngToPixel(
+              tweets.responseJSON[key].lat,
+              tweets.responseJSON[key].lon
             );
-            // let diameter = Math.sqrt(tweets.responseJSON[key].count);
-            let scaler = tweetsMap.zoom() /5;
-            ellipse(pixCoords.x, pixCoords.y, tweets.responseJSON[key].count*scaler,tweets.responseJSON[key].count*scaler);
+            
+            const zoom = tweetsMap.zoom();
+            const scl = pow(2, zoom)*.02; // * sin(frameCount * 0.1);
+            ellipse(pixCoords.x, pixCoords.y, tweets.responseJSON[key].count*scl,tweets.responseJSON[key].count*scl);
+            }
           }
         }
-      } else {processData();}
-  }
+      } else {mapMaxMin();}
+  } 
+}
 
 
-
-  function processData() {
-    // let type = dataSource.value();
-    // switch (type) {
-    //   case 'query1':
-    //     currentColor = color(64, 250, 200, 100);
-    //     break;
-    //   case 'query2':
-    //     currentColor = color(255, 0, 200, 100);
-    //     break;
-    //   case 'query3':
-    //     currentColor = color(200, 0, 100, 100);
-    //     break;
-    // }
-    let maxValue = 0; // changed to something more generic, as we no longer only work with subs
-    let minValue = Infinity;
-    
-    for (var key in tweets.responseJSON) {
-      if (tweets.responseJSON.hasOwnProperty(key)) {
-        if (tweets.responseJSON[key].count > maxValue) {
-          maxValue = tweets.responseJSON[key].count;
-        }
-        if (tweets.responseJSON[key].count < minValue) {
-          minValue = tweets.responseJSON[key].count;
-        }
+function mapMaxMin() {
+  // let type = dataSource.value();
+  // switch (type) {
+  //   case 'query1':
+  //     currentColor = color(64, 250, 200, 100);
+  //     break;
+  //   case 'query2':
+  //     currentColor = color(255, 0, 200, 100);
+  //     break;
+  //   case 'query3':
+  //     currentColor = color(200, 0, 100, 100);
+  //     break;
+  // }
+  let maxValue = 0; 
+  let minValue = Infinity;
+  
+  for (var key in tweets.responseJSON) {
+    if (tweets.responseJSON.hasOwnProperty(key)) {
+      if (tweets.responseJSON[key].count > maxValue) {
+        maxValue = tweets.responseJSON[key].count;
+      }
+      if (tweets.responseJSON[key].count < minValue) {
+        minValue = tweets.responseJSON[key].count;
       }
     }
-    dataProcessed = true;
-    let minD = sqrt(minValue);
-    let maxD = sqrt(maxValue);
-  
-    // for (var key in tweets.responseJSON) {
-    //   tweets.responseJSON[key].diameter = map(sqrt(tweets.responseJSON[key].count), minD, maxD, 35,100);
-    // }
   }
-  
+  dataProcessed = true;
+  let minD = sqrt(minValue);
+  let maxD = sqrt(maxValue);
+
+  // for (var key in tweets.responseJSON) {
+  //   tweets.responseJSON[key].diameter = map(sqrt(tweets.responseJSON[key].count), minD, maxD, 2,10);
+  // }
 }
