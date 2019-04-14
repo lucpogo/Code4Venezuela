@@ -16,6 +16,13 @@ Se encontrara un [Apk para debug](https://github.com/lucpogo/Code4Venezuela/tree
 ![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_2.png) 
 ![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_3.png) 
   
+## Autores
+
+* **Edermar Dominguez** - [Ederdoski](https://gitlab.com/Ederdoski/about)
+* ** ** - []()
+* ** ** - []()
+
+
 ## Referencias
 
 
