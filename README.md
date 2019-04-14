@@ -149,7 +149,7 @@ Se encontrara un [Apk de debug](https://github.com/lucpogo/Code4Venezuela/tree/m
   
 ## Autores
 
-* **Edermar Dominguez** - [Ederdoski](https://gitlab.com/Ederdoski/about)
+* **Edermar Dominguez** - [Ederdoski](https://github.com/ederdoski)
 * **Lucas Pogorelsky** - [lucpogo](http://www.github.com/lucpogo)
 * **Salvador Serruya** - [ttSpeaker](http://www.github.com/ttspeaker)
 
