@@ -91,13 +91,13 @@ def parseTweet(t,ubicacion,query):
     dicc['query']=query
     dicc['id']=t['id']
     dicc['tweet_date']=datetime.strptime(t['created_at'][4:20]+t['created_at'][-4:],'%b %d %H:%M:%S %Y')
-    dicc['tweet_text']=t['full_text']
+    dicc['tweet_text']=t['full_text'][:500]
     try:
-        dicc['hashtags']=','.join([x['text'] for x in t['entities']['hashtags']])
+        dicc['hashtags']=','.join([x['text'] for x in t['entities']['hashtags']])[:500]
     except:
         dicc['hashtags']='\'\''
-    dicc['usernick']=t['user']['screen_name']
-    dicc['username']=t['user']['name']
+    dicc['usernick']=t['user']['screen_name'][:200]
+    dicc['username']=t['user']['name'][:200]
     dicc['userid']=t['user']['id']
     if 'retweeted_status' in t.keys():
         dicc['is_retweet']=True
