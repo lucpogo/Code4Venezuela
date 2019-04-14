@@ -108,7 +108,6 @@ También se dejará en el storage un archivo .json con la descarga de Twitter.
 ```GET```: /tweets/```query```
 <br>Devuelve un objeto con las cantidades de twits por ciudad de la query elegida. Sin contar retweets.
 <br>Ej:
-
 ```
 [{"count":"25","ubicacion":"MARACAIBO","lat":"10.648715","lon":"-71.680717"},{"count":"138","ubicacion":"TÁCHIRA","lat":"7.978732","lon":"-71.979750"},
 {"count":"2514","ubicacion":"CARACAS","lat":"10.469676","lon":"-66.880064"},
@@ -134,11 +133,11 @@ También se dejará en el storage un archivo .json con la descarga de Twitter.
 ```
 ```GET```: /map
 <br>WEB para visualizar en mapa las cantidades de twits relevados por ciudad.
-<br>[Live DEMO](http://40.117.115.124:8080/map)
+<br><br>[Live DEMO](http://40.117.115.124:8080/map)
 
 ## Android 
 
-Se encontrara un [Apk de debug](), la misma se conecta a un API donde obtiene los querys mas populares para realizar busquedas en twitter, una vez seleccionado uno, se redigira a un mapa donde se clasificaran los tweets por ciudades, indicando los sitios afectados y la cantidad de tweets sobre el tema. 
+Se encontrara un [Apk de debug](https://github.com/lucpogo/Code4Venezuela/tree/master/TwitterHelpHackaton/apk-debug), la misma se conecta a un API donde obtiene los querys mas populares para realizar busquedas en twitter, una vez seleccionado uno, se redigira a un mapa donde se clasificaran los tweets por ciudades, indicando los sitios afectados y la cantidad de tweets sobre el tema. 
 
 ![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_1.png) 
 ![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_2.png) 
