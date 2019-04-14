@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var cors = require("cors");
+const path = require('path')
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -80,7 +81,9 @@ app.get("/tweets", (req, res) => {
     res.status(200).json(results.rows);
   });
 });
-
+app.get('/map', function(request, response){
+  response.status(200).sendFile(path.resolve('../c4v-front/empty-example/index.html'));
+});
 app.listen(process.env.PORT, function() {
   console.log("Running app on port " + process.env.PORT);
 });
