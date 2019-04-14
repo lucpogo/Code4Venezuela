@@ -98,14 +98,14 @@ También se dejará en el storage un archivo .json con la descarga de Twitter.
 
 ### API
 
-GET: /querys
+```GET```: /querys
 <br>Devuelve la lista de hashtags / keywords que estan siendo utilizadas para la ingesta de datos.
 <br>Ej:
 ```
 [{"query":"azitromicina"},{"query":"avelox"},{"query":"moxifloxacina"},{"query":"medicina"},{"query":"serviciopublico"},{"query":"metronidazol"}]
 ```
 
-GET: /tweets/```query```
+```GET```: /tweets/```query```
 <br>Devuelve un objeto con las cantidades de twits por ciudad de la query elegida. Sin contar retweets.
 <br>Ej:
 
@@ -116,7 +116,7 @@ GET: /tweets/```query```
 ```
 
 
-GET: /tweets
+```GET```: /tweets
 <br>Devuelve todos los twits en la BD:
 <br>Ej:
 ```
@@ -124,7 +124,7 @@ GET: /tweets
 {"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451397891534848","tweet_date":"2019-04-14T15:35:49.000Z","usernick":"ramorodri","userid":"213440472","username":"Ramon Rodriguez","tweet_text":"RT @ElNacionalWeb: #ServicioPúblico Mauricio Lemus  sufrió un ACV hemorrágico y se encuentra hospitalizado en la Unidad de Cuidados Intensi…","hashtags":"ServicioPúblico","is_retweet":true,"retweet_of":"1117451230467502100"},{"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451377029074944","tweet_date":"2019-04-14T15:35:44.000Z","usernick":"Isabel
 ```
 
-GET: /ubicaciones
+```GET```: /ubicaciones
 <br>Devuelve ubicaciones que estan siendo utilizadas para la ingesta de datos.
 ```
 [{"ubicacion":"TÁCHIRA"},
@@ -132,7 +132,7 @@ GET: /ubicaciones
 {"ubicacion":"CIUDAD BOLÍVAR"},
 {"ubicacion":"CARACAS"}]```
 ```
-GET: /map
+```GET```: /map
 <br>WEB para visualizar en mapa las cantidades de twits relevados por ciudad.
 <br>[Live DEMO](http://40.117.115.124:8080/map)
 
