@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">TwitterHelpHackaton</string>
+    <string name="txt_load">Loading...</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="txt_header_title">Medicos por la salud</string>
+
+
+    <string name="txt_states_affected">Estados afectados: %1$d</string>
+
+    <!--Dialogs-->
+
+    <string name="txt_ups">ups...!</string>
+    <string name="txt_not_internet">No posee conexion a internet</string>
+
+
+    <!--Buttons-->
+
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_record">Record</string>
+    <string name="btn_complete">Complete</string>
+    <string name="btn_pause">pause</string>
+    <string name="btn_next">next</string>
+    <string name="btn_yes">yes</string>
+    <string name="btn_no">no</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_crop">Crop</string>
+    <string name="btn_begin">Begin</string>
+    <string name="btn_view">View</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_skip">Skip</string>
+    <string name="btn_contact_us">contact us</string>
+    <string name="btn_try_again">try again</string>
+    <string name="btn_send_request">Send Request</string>
+    <string name="btn_get_started">get started</string>
+    <string name="btn_start_test">Start Test</string>
+    <string name="btn_go_app">Go to App</string>
+    <string name="btn_choose_img">Choose Image</string>
+
+</resources>
