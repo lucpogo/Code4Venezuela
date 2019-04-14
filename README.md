@@ -12,9 +12,9 @@
 
 Se encontrara un [Apk de debug](), la misma se conecta a un API donde obtiene los querys mas populares para realizar busquedas en twitter, una vez seleccionado uno, se redigira a un mapa donde se clasificaran los tweets por ciudades, indicando los sitios afectados y la cantidad de tweets sobre el tema. 
 
-![Example](image/example_1.png) 
-![Example](image/example_2.png) 
-![Example](image/example_3.png) 
+![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_1.png) 
+![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_2.png) 
+![Example](https://github.com/lucpogo/Code4Venezuela/blob/master/TwitterHelpHackaton/images/example_3.png) 
   
 ## Referencias
 
