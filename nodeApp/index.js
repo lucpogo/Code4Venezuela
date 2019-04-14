@@ -39,14 +39,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 
-app.get("/ubicaciones", (req, res) => {
-  pool.query("SELECT * FROM ubicaciones;", (error, results) => {
-    if (error) {
-      throw error;
-    }
-    res.status(200).json(results.rows);
-  });
-});
+
 app.get("/querys", (req, res) => {
   pool.query("SELECT DISTINCT query FROM tweets;", (error, results) => {
     if (error) {
@@ -71,8 +64,11 @@ app.get("/tweets/:query", (req, res) => {
     (error, results) => {
       if (error) {
         throw error;
+      } else if (isEmpty(results.rows)) {
+        res.status(404).send("No existe la query en la BD");
+      } else {
+        res.status(200).json(results.rows);
       }
-      res.status(200).json(results.rows);
     }
   );
 });
@@ -88,3 +84,10 @@ app.get("/tweets", (req, res) => {
 app.listen(process.env.PORT, function() {
   console.log("Running app on port " + process.env.PORT);
 });
+
+function isEmpty(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) return false;
+  }
+  return true;
+}
