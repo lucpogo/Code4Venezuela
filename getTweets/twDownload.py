@@ -12,9 +12,9 @@ import time
 from azure.storage.blob import BlockBlobService
 import datetime
 
-#os.chdir(os.path.dirname(os.path.realpath(__file__)))
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-os.chdir('getTweets')
+#os.chdir('getTweets')
 
 #Params
 with open("params/twitterKeys.json") as f:
