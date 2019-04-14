@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_120sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.ivankocijan.magicviews.views.MagicTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Title"
+            android:textSize="@dimen/font_high"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"/>
+
+        <com.uncopt.android.widget.text.justify.JustifiedTextView
+            style="@style/AppTheme.TextView"
+            android:id="@+id/txtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_high"
+            android:gravity="center"
+            android:textColor = "@color/black"
+            android:minHeight= "@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Message" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.ivankocijan.magicviews.views.MagicTextView
+                android:id="@+id/btnNeutral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minHeight="@dimen/_10sdp"
+                android:text="@string/btn_ok"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                app:fontFamily="gothamrounded_bold.otf"
+                android:textSize="@dimen/font_high" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

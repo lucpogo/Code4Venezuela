@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <dimen name="font_big">@dimen/_16sdp</dimen>
+    <dimen name="font_high">@dimen/_14sdp</dimen>
+    <dimen name="font_mid">@dimen/_13sdp</dimen>
+    <dimen name="font_low">@dimen/_11sdp</dimen>
+
+</resources>
