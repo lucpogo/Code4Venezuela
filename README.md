@@ -95,6 +95,47 @@ Al ejecutarse se actualizará la tabla `tweets` que contiene:
 
 También se dejará en el storage un archivo .json con la descarga de Twitter.
 
+
+### API
+
+GET: /querys
+<br>Devuelve la lista de hashtags / keywords que estan siendo utilizadas para la ingesta de datos.
+<br>Ej:
+```
+[{"query":"azitromicina"},{"query":"avelox"},{"query":"moxifloxacina"},{"query":"medicina"},{"query":"serviciopublico"},{"query":"metronidazol"}]
+```
+
+GET: /tweets/```query```
+<br>Devuelve un objeto con las cantidades de twits por ciudad de la query elegida. Sin contar retweets.
+<br>Ej:
+
+```
+[{"count":"25","ubicacion":"MARACAIBO","lat":"10.648715","lon":"-71.680717"},{"count":"138","ubicacion":"TÁCHIRA","lat":"7.978732","lon":"-71.979750"},
+{"count":"2514","ubicacion":"CARACAS","lat":"10.469676","lon":"-66.880064"},
+{"count":"73","ubicacion":"CIUDAD BOLÍVAR","lat":"8.089069","lon":"-63.531783"}]
+```
+
+
+GET: /tweets
+<br>Devuelve todos los twits en la BD:
+<br>Ej:
+```
+[{"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451571422531584","tweet_date":"2019-04-14T15:36:30.000Z","usernick":"mariauxiran","userid":"1855700706","username":"Maria Auxiliadora","tweet_text":"RT @ElNacionalWeb: #ServicioPúblico Mauricio Lemus  sufrió un ACV hemorrágico y se encuentra hospitalizado en la Unidad de Cuidados Intensi…","hashtags":"ServicioPúblico","is_retweet":true,"retweet_of":"1117451230467502100"},{"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451523917791232","tweet_date":"2019-04-14T15:36:19.000Z","usernick":"Tuozzololidagm1","userid":"847533128629575680","username":"Tuozzololida@gmail.c","tweet_text":"RT @RCR750: #ServicioPúblico URGENTE para niña de 5 años en terapia intensiva se necesita Gluconato de calcio al 10% en ampollas. Contacto:…","hashtags":"ServicioPúblico","is_retweet":true,"retweet_of":"1117408911789838300"},
+{"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451397891534848","tweet_date":"2019-04-14T15:35:49.000Z","usernick":"ramorodri","userid":"213440472","username":"Ramon Rodriguez","tweet_text":"RT @ElNacionalWeb: #ServicioPúblico Mauricio Lemus  sufrió un ACV hemorrágico y se encuentra hospitalizado en la Unidad de Cuidados Intensi…","hashtags":"ServicioPúblico","is_retweet":true,"retweet_of":"1117451230467502100"},{"query":"serviciopublico","ubicacion":"CARACAS","id":"1117451377029074944","tweet_date":"2019-04-14T15:35:44.000Z","usernick":"Isabel
+```
+
+GET: /ubicaciones
+<br>Devuelve ubicaciones que estan siendo utilizadas para la ingesta de datos.
+```
+[{"ubicacion":"TÁCHIRA"},
+{"ubicacion":"MARACAIBO"},
+{"ubicacion":"CIUDAD BOLÍVAR"},
+{"ubicacion":"CARACAS"}]```
+```
+GET: /map
+<br>WEB para visualizar en mapa las cantidades de twits relevados por ciudad.
+<br>[Live DEMO](http://40.117.115.124:8080/map)
+
 ## Android 
 
 Se encontrara un [Apk de debug](), la misma se conecta a un API donde obtiene los querys mas populares para realizar busquedas en twitter, una vez seleccionado uno, se redigira a un mapa donde se clasificaran los tweets por ciudades, indicando los sitios afectados y la cantidad de tweets sobre el tema. 
