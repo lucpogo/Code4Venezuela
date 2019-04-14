@@ -2,6 +2,9 @@
 
 ## Introducción
 
+Esta solución responde al problema de [Médicos por la Salud](https://github.com/code-for-venezuela/2019-april-codeathon/tree/master/challenges/MPV-INF).
+
+Nos enfocamos en poder automatizar la ingesta de datos y la visualización de la misma.
 
 ## Instalación
 
