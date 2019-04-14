@@ -11,6 +11,8 @@ import io
 import time
 from azure.storage.blob import BlockBlobService
 
+print("Empezando @ {}".format(str(datetime.now())))
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 #os.chdir('getTweets')
@@ -50,7 +52,7 @@ for _, qRow in queries.iterrows():
         
         since_id = oldId[(oldId['query']==qRow.busqueda) & (oldId['ubicacion']==locRow.ubicacion)].id
         time.sleep(5)
-
+        print("Importando Tweets de {} en {} @ {}".format(qRow.busqueda,locRow.ubicacion,str(datetime.now())))
         if since_id.size>0:
             buffer = api.search(q=qRow.busqueda,
                                 geocode='{},{},{}'.format(locRow.lat,locRow.lon,locRow.rad),
@@ -107,6 +109,9 @@ def parseTweet(t,ubicacion,query):
     return dicc
 
 df = []
+
+print("Procesando Tweets @ {}".format(str(datetime.now())))
+
 for q , ubicaciones in data.items():
     for u, tweets in ubicaciones.items():
         for tweet in tweets:
@@ -115,6 +120,8 @@ for q , ubicaciones in data.items():
             
 
 df=pd.DataFrame(df).reindex(columns=['query','ubicacion','id','tweet_date','usernick','userid','username','tweet_text','hashtags','is_retweet','retweet_of']).replace(regex=True,to_replace=r'\|',value=r'')
+
+print("Enviando a la Base de Datos @ {}".format(str(datetime.now())))
 
 df.to_sql('tweets',con=engine,if_exists='append',index=False)
 
@@ -125,6 +132,8 @@ fileName = str(datetime.now()) + '.json'
 with open(fileName,'wt') as f:
     json.dump(data,f)
 
+print("Enviando a Storage @ {}".format(str(datetime.now())))
+
 blob_service.create_blob_from_path(
     storageParams['container'],
     fileName,
@@ -132,3 +141,5 @@ blob_service.create_blob_from_path(
 )
 
 os.remove(fileName)
+
+print("Fin @ {}".format(str(datetime.now())))
