@@ -13,13 +13,12 @@
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	<!-- <script src="data.js"></script>
 	<script src="sketch.js"></script> -->
-<style>
-body {
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  </style>
+	<style>
+		body {
+			justify-content: center;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
 </head>
 
 <body>
@@ -105,6 +104,10 @@ body {
 									sqrt(tweets.responseJSON[key].count) * scl,
 									sqrt(tweets.responseJSON[key].count) * scl
 								);
+								//textSize(tweets.responseJSON[key].count *.5);
+								textSize(25);
+								fill(0, 102, 153);
+								text(tweets.responseJSON[key].count, pixCoords.x-10, pixCoords.y);
 							}
 						}
 					}
@@ -129,12 +132,12 @@ body {
 				}
 			}
 			dataProcessed = true;
-			let minD = sqrt(minValue);
+			let minD = 10;
 			let maxD = sqrt(maxValue);
 
-			// for (var key in tweets.responseJSON) {
-			//   tweets.responseJSON[key].diameter = map(sqrt(tweets.responseJSON[key].count), minD, maxD, 2,10);
-			// }
+			for (var key in tweets.responseJSON) {
+			  tweets.responseJSON[key].diameter = map(sqrt(tweets.responseJSON[key].count), minD, maxD, 25,100);
+			}
 		}
 
 	</script>
